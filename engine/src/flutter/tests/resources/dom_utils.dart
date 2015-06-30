@@ -1,4 +1,3 @@
-<script>
 import "dart:sky";
 
 int childNodeCount(parent) {
@@ -14,4 +13,3 @@ int childElementCount(parent) {
     ++count;
   return count;
 }
-</script>
