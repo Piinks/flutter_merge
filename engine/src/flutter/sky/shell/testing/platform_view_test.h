@@ -2,28 +2,22 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#ifndef SKY_SHELL_PLATFORM_IOS_PLATFORM_VIEW_IOS_H_
-#define SKY_SHELL_PLATFORM_IOS_PLATFORM_VIEW_IOS_H_
-
-#include <memory>
+#ifndef SKY_SHELL_TESTING_PLATFORM_VIEW_TEST_H_
+#define SKY_SHELL_TESTING_PLATFORM_VIEW_TEST_H_
 
 #include "base/macros.h"
-#include "base/mac/scoped_nsobject.h"
-#include "base/memory/weak_ptr.h"
 #include "sky/shell/platform_view.h"
-
-@class CAEAGLLayer;
 
 namespace sky {
 namespace shell {
 
-class IOSGLContext;
+class Shell;
 
-class PlatformViewIOS : public PlatformView {
+class PlatformViewTest : public PlatformView {
  public:
-  explicit PlatformViewIOS(CAEAGLLayer* layer);
+  PlatformViewTest();
 
-  ~PlatformViewIOS() override;
+  ~PlatformViewTest();
 
   base::WeakPtr<sky::shell::PlatformView> GetWeakViewPtr() override;
 
@@ -36,13 +30,12 @@ class PlatformViewIOS : public PlatformView {
   bool SwapBuffers() override;
 
  private:
-  std::unique_ptr<IOSGLContext> context_;
-  base::WeakPtrFactory<PlatformViewIOS> weak_factory_;
+  base::WeakPtrFactory<PlatformViewTest> weak_factory_;
 
-  DISALLOW_COPY_AND_ASSIGN(PlatformViewIOS);
+  DISALLOW_COPY_AND_ASSIGN(PlatformViewTest);
 };
 
 }  // namespace shell
 }  // namespace sky
 
-#endif  // SKY_SHELL_PLATFORM_IOS_PLATFORM_VIEW_IOS_H_
+#endif  // SKY_SHELL_TESTING_PLATFORM_VIEW_TEST_H_
